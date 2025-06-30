@@ -43,12 +43,12 @@ def reverse_pair(t):
     If t is a tuple with more or fewer than two elements, raise a
     ValueError.
     """
-    # replace the pass statement with your code
     if not isinstance(t, tuple):
         raise TypeError("Input must be a tuple")
     if len(t) < 2 or len(t) > 2:
         raise ValueError("Must be two elements")
     return t[::-1]
+
 
 def middle_element_of_list(a):
     """
@@ -58,7 +58,6 @@ def middle_element_of_list(a):
     elements, raise an IndexError. If a is not a list, raise a
     TypeError.
     """
-    # replace the pass statement with your code
     if not isinstance(a, list):
         raise TypeError("Input must be a list")
     if not len(a):
@@ -68,7 +67,6 @@ def middle_element_of_list(a):
     if len(a) % (2) == 0:
         middle = (len(a) - 1) / 2
     return a[int(middle)]
-        
 
 
 def unique_elements(a):
@@ -76,7 +74,6 @@ def unique_elements(a):
     Returns a set of unique elements from the input list a.
     If a is not a list, raise a TypeError.
     """
-    # replace the pass statement with your code
     if not isinstance(a, list):
         raise TypeError("Input must be a list")
     my_set = set()
@@ -84,12 +81,12 @@ def unique_elements(a):
         my_set.add(element)
     return my_set
 
+
 def contains_duplicates(a):
     """
     Returns True if the input list a contains any duplicate elements,
     and False otherwise. If a is not a list, raise a TypeError.
     """
-    # replace the pass statement with your code
     if not isinstance(a, list):
         raise TypeError("Input must be a list")
     my_set = set()
@@ -99,8 +96,6 @@ def contains_duplicates(a):
         else:
             my_set.add(element)
     return False
-        
-    
 
 
 def is_superset(a, b):
@@ -108,7 +103,6 @@ def is_superset(a, b):
     Returns True if set a is a superset of set b, and False otherwise.
     If either a or b is not a set, raise a TypeError.
     """
-    # replace the pass statement with your code
     if not isinstance(a, set) or not isinstance(b, set):
         raise TypeError("Input must be a set")
     return a.issuperset(b)
@@ -119,11 +113,9 @@ def is_subset(a, b):
     Returns True if set a is a subset of set b, and False otherwise.
     If either a or b is not a set, raise a TypeError.
     """
-    # replace the pass statement with your code
     if not isinstance(a, set) or not isinstance(b, set):
         raise TypeError("Input must be a set")
     return a.issubset(b)
-    
 
 
 def is_disjoint(a, b):
@@ -131,13 +123,9 @@ def is_disjoint(a, b):
     Returns True if sets a and b are disjoint (i.e., have no elements in common),
     and False otherwise. If either a or b is not a set, raise a TypeError.
     """
-    # replace the pass statement with your code
     if not isinstance(a, set) or not isinstance(b, set):
         raise TypeError("Input must be a set")
     return a.isdisjoint(b)
-    
-
-
 
 
 def most_frequent_value_or_values(d):
@@ -147,7 +135,6 @@ def most_frequent_value_or_values(d):
     frequency, return them as a set. If d is empty, return None.
     If d is not a dictionary, raise a TypeError.
     """
-    # replace the pass statement with your code
     if not isinstance(d, dict):
         raise TypeError("Input must be a dictionary")
     if not d:
@@ -168,20 +155,19 @@ def most_frequent_value_or_values(d):
             highest.add(value)
     return highest
 
+
 def key_is_in_both_dictionaries(d1, d2, key):
     """
     Returns True if the key is present in both dictionaries d1 and d2,
     and False otherwise. If either d1 or d2 is not a dictionary,
     raise a TypeError.
     """
-    # replace the pass statement with your code
-    if not isinstance (d1, dict) or not isinstance (d2, dict):
+    if not isinstance(d1, dict) or not isinstance(d2, dict):
         raise TypeError("Input must be a dictionary")
     for element in d1:
         if element in d2:
             return True
     return False
-    
 
 
 def word_frequencies(s):
@@ -195,7 +181,6 @@ def word_frequencies(s):
 
     If s is not a string, raise a TypeError.
     """
-    # replace the pass statement with your code
     if not isinstance(s, str):
         raise TypeError
     result = s.split()
@@ -206,6 +191,7 @@ def word_frequencies(s):
         else:
             count[word] = 1
     return count
+
 
 class TestDataStructuresCardio(unittest.TestCase):
     def test_third_element(self):
@@ -247,8 +233,9 @@ class TestDataStructuresCardio(unittest.TestCase):
         self.assertEqual(unique_elements([1, 1, 1]), {1})
         self.assertEqual(unique_elements([]), set())
         self.assertEqual(unique_elements([1, 2, 3, 4, 5]), {1, 2, 3, 4, 5})
-        self.assertEqual(unique_elements(
-            [False, 3, "dog", False, "dog"]), {False, 3, "dog"})
+        self.assertEqual(
+            unique_elements([False, 3, "dog", False, "dog"]), {False, 3, "dog"}
+        )
         with self.assertRaises(TypeError):
             unique_elements("not a list")
         with self.assertRaises(TypeError):
@@ -283,32 +270,31 @@ class TestDataStructuresCardio(unittest.TestCase):
             is_disjoint("not a set", {1})
 
     def test_most_frequent_value_or_values(self):
-        self.assertEqual(most_frequent_value_or_values(
-            {'a': 1, 'b': 2, 'c': 1}), {1})
-        self.assertEqual(most_frequent_value_or_values(
-            {'a': 1, 'b': 2, 'c': 2}), {2})
-        self.assertEqual(most_frequent_value_or_values(
-            {'a': 1, 'b': 1, 'c': 2, 'd': 2}), {1, 2})
+        self.assertEqual(most_frequent_value_or_values({"a": 1, "b": 2, "c": 1}), {1})
+        self.assertEqual(most_frequent_value_or_values({"a": 1, "b": 2, "c": 2}), {2})
+        self.assertEqual(
+            most_frequent_value_or_values({"a": 1, "b": 1, "c": 2, "d": 2}), {1, 2}
+        )
         self.assertEqual(most_frequent_value_or_values({}), None)
         with self.assertRaises(TypeError):
             most_frequent_value_or_values("not a dict")
 
     def test_key_is_in_both_dictionaries(self):
-        self.assertTrue(key_is_in_both_dictionaries(
-            {'a': 1, 'b': 2}, {'b': 3, 'c': 4}, 'b'))
-        self.assertFalse(key_is_in_both_dictionaries(
-            {'a': 1}, {'b': 2}, 'a'))
+        self.assertTrue(
+            key_is_in_both_dictionaries({"a": 1, "b": 2}, {"b": 3, "c": 4}, "b")
+        )
+        self.assertFalse(key_is_in_both_dictionaries({"a": 1}, {"b": 2}, "a"))
         with self.assertRaises(TypeError):
-            key_is_in_both_dictionaries("not a dict", {'b': 2}, 'b')
+            key_is_in_both_dictionaries("not a dict", {"b": 2}, "b")
         with self.assertRaises(TypeError):
-            key_is_in_both_dictionaries({'a': 1}, "not a dict", 'a')
+            key_is_in_both_dictionaries({"a": 1}, "not a dict", "a")
 
     def test_word_frequencies(self):
-        self.assertEqual(word_frequencies("hello world hello"),
-                         {'hello': 2, 'world': 1})
-        self.assertEqual(word_frequencies("a b a c b a"),
-                         {'a': 3, 'b': 2, 'c': 1})
-        self.assertEqual(word_frequencies("test test test"), {'test': 3})
+        self.assertEqual(
+            word_frequencies("hello world hello"), {"hello": 2, "world": 1}
+        )
+        self.assertEqual(word_frequencies("a b a c b a"), {"a": 3, "b": 2, "c": 1})
+        self.assertEqual(word_frequencies("test test test"), {"test": 3})
         self.assertEqual(word_frequencies(""), {})
         with self.assertRaises(TypeError):
             word_frequencies(12345)
