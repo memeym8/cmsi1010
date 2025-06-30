@@ -1,26 +1,14 @@
-# ----------------------------------------------------------------------
-# This is the file functions_cardio.py
-
-# The intent is to give you practice writing functions.
-
-# Complete the functions below.
-# Remove this comment when you have completed the functions.
-# ----------------------------------------------------------------------
-
 def is_odd(n):
     """
     Returns True if n is odd, False otherwise.
     """
-    # replace the pass statement with your code
     return n % 2 == 1
-
 
 
 def median_of_three(a, b, c):
     """
     Returns the median of three numbers a, b, and c.
     """
-    # replace the pass statement with your code
     return (a + b + c) / 3
 
 
@@ -32,8 +20,8 @@ def is_palindrome(s):
     implement it as a simple check to see if s is equal to its
     reversal.
     """
-    # replace the pass statement with your code
     return s == s[::-1]
+
 
 def factorial(n):
     """
@@ -43,12 +31,10 @@ def factorial(n):
     positive integers less than or equal to n. Please implement this
     function with a for loop.
     """
-    # replace the pass statement with your code
     product = 1
     for i in range(n):
         product = (i + 1) * product
     return product
-
 
 
 def count_of_latin_vowels(s):
@@ -58,14 +44,11 @@ def count_of_latin_vowels(s):
     The vowels are 'a', 'e', 'i', 'o', and 'u'. You can implement this
     function using a for loop to iterate through the string.
     """
-    # replace the pass statement with your code
     count = 0
-    # s = sonic
     for letter in s:
         if letter in "AaEeIiOoUu":
             count += 1
     return count
-        
 
 
 def longest_string(strings):
@@ -75,12 +58,12 @@ def longest_string(strings):
     If there are multiple strings with the same maximum length, return
     the first one encountered.
     """
-    # replace the pass statement with your code
     longest = ""
     for string in strings:
         if len(longest) < len(string):
             longest = string
     return longest
+
 
 def word_frequencies(s):
     """
@@ -91,7 +74,6 @@ def word_frequencies(s):
     A word is defined as a sequence of characters separated by spaces.
     You can implement this function using the split method.
     """
-    # replace the pass statement with your code
     dictionary = {}
     words = s.split()
     for word in words:
@@ -100,6 +82,7 @@ def word_frequencies(s):
         else:
             dictionary[word] = 1
     return dictionary
+
 
 assert is_odd(3) == True
 assert is_odd(8) == False
@@ -136,7 +119,7 @@ assert longest_string(["short", "longer", "longest"]) == "longest"
 assert longest_string(["a", "ab", "abc"]) == "abc"
 assert longest_string(["one", "two", "three", "four"]) == "three"
 
-assert word_frequencies("hello world hello") == {'hello': 2, 'world': 1}
-assert word_frequencies("a b a c b a") == {'a': 3, 'b': 2, 'c': 1}
-assert word_frequencies("test test test") == {'test': 3}
+assert word_frequencies("hello world hello") == {"hello": 2, "world": 1}
+assert word_frequencies("a b a c b a") == {"a": 3, "b": 2, "c": 1}
+assert word_frequencies("test test test") == {"test": 3}
 assert word_frequencies("") == {}
